@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Servicios - Agencia de Viajes Express</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="index.html">Agencia de Viajes Express</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="menuNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link active" href="servicios.html">Servicios</a></li>
+        <li class="nav-item"><a class="nav-link" href="registro.html">Registro</a></li>
+        <li class="nav-item"><a class="nav-link" href="lista.html">Lista de Clientes</a></li>
+        <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- TÍTULO -->
+<div class="container mt-5 pt-5">
+  <h1 class="text-center mb-4">Nuestros Paquetes de Viaje</h1>
+  <div class="row" id="listaPaquetes"></div>
+</div>
+
+<!-- MODAL -->
+<div class="modal fade" id="modalPaquete" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="tituloPaquete"></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body" id="detallePaquete"></div>
+    </div>
+  </div>
+</div>
+
+<footer class="bg-dark text-white text-center py-3 mt-5">
+  &copy; 2025 Agencia de Viajes Express - Todos los derechos reservados
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+const paquetes = [
+  {titulo:'Cancún All-Inclusive', destino:'Cancún, México', duracion:'5 días / 4 noches', incluye:'Hospedaje, vuelos redondos, transporte, tours, comidas y bebidas ilimitadas', precio:'$15,000 MXN', imagen:'img/cancun.jpg'},
+  {titulo:'Europa en 15 días', destino:'Europa', duracion:'15 días', incluye:'Vuelos, trenes, hoteles, tours', precio:'$60,000 MXN', imagen:'img/europa.jpg'},
+  {titulo:'Experiencia en Nueva York', destino:'Nueva York, USA', duracion:'6 días', incluye:'Vuelos, hotel, tour por la ciudad', precio:'$28,000 MXN', imagen:'img/newyork.jpg'},
+  {titulo:'Safari en África', destino:'África', duracion:'10 días', incluye:'Safaris, hospedaje, vuelos internos', precio:'$70,000 MXN', imagen:'img/safari.jpg'},
+  {titulo:'Maravillas de Asia', destino:'Asia', duracion:'12 días', incluye:'Vuelos, tours y alojamientos', precio:'$55,000 MXN', imagen:'img/asia.jpg'},
+  {titulo:'Ruta por Sudamérica', destino:'Sudamérica', duracion:'14 días', incluye:'Transporte terrestre y hospedaje', precio:'$30,000 MXN', imagen:'img/sudamerica.jpg'},
+  {titulo:'Islas del Caribe', destino:'Caribe', duracion:'7 días', incluye:'Resort, vuelos y actividades acuáticas', precio:'$22,000 MXN', imagen:'img/caribe.jpg'},
+  {titulo:'Desierto de Dubái', destino:'Dubái, EAU', duracion:'5 días', incluye:'Vuelos, hotel y safari por el desierto', precio:'$40,000 MXN', imagen:'img/dubai.jpg'},
+  {titulo:'Canadá y sus paisajes', destino:'Canadá', duracion:'9 días', incluye:'Vuelo, hotel y excursiones', precio:'$35,000 MXN', imagen:'img/canada.jpg'},
+  {titulo:'Ruta Maya México', destino:'México', duracion:'6 días', incluye:'Tours arqueológicos y hospedaje', precio:'$18,000 MXN', imagen:'img/maya.jpg'}
+];
+
+const contenedor = document.getElementById('listaPaquetes');
+paquetes.forEach((p, i) => {
+  contenedor.innerHTML += `
+    <div class="col-md-4 mb-4">
+      <div class="card h-100">
+        <img src="${p.imagen}" class="card-img-top" alt="${p.titulo}">
+        <div class="card-body">
+          <h5 class="card-title">${p.titulo}</h5>
+          <p><strong>Destino:</strong> ${p.destino}</p>
+          <p><strong>Duración:</strong> ${p.duracion}</p>
+          <p><strong>Precio:</strong> ${p.precio}</p>
+          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalPaquete" onclick="mostrarDetalle(${i})">Más información</button>
+        </div>
+      </div>
+    </div>
+  `;
+});
+
+function mostrarDetalle(i) {
+  const p = paquetes[i];
+  document.getElementById('tituloPaquete').innerText = p.titulo;
+  document.getElementById('detallePaquete').innerHTML = `
+    <img src="${p.imagen}" class="img-fluid mb-3" alt="${p.titulo}">
+    <p><strong>Destino:</strong> ${p.destino}</p>
+    <p><strong>Duración:</strong> ${p.duracion}</p>
+    <p><strong>Incluye:</strong> ${p.incluye}</p>
+    <p><strong>Precio:</strong> ${p.precio}</p>
+    <p><em>Política de cancelación:</em> Cancelación gratuita hasta 7 días antes de la salida.</p>
+  `;
+}
+</script>
+</body>
+</html>

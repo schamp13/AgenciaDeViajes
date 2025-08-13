@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agencia de Viajes Express</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="index.html">Agencia de Viajes Express</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="menuNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link" href="servicios.html">Servicios</a></li>
+        <li class="nav-item"><a class="nav-link" href="registro.html">Registro</a></li>
+        <li class="nav-item"><a class="nav-link" href="lista.html">Lista de Clientes</a></li>
+        <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero text-center">
+  <div>
+    <h1>Explora el mundo con nosotros</h1>
+    <p class="lead">Paquetes de viaje únicos y experiencias inolvidables</p>
+    <a href="servicios.html" class="btn btn-primary btn-lg">Reserva tu viaje ahora</a>
+  </div>
+</section>
+
+<!-- CARRUSEL -->
+<div class="container my-5">
+  <div id="carouselDestinos" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="img/caribe.jpg" class="d-block w-100" alt="Playa">
+      </div>
+      <div class="carousel-item">
+        <img src="img/mont.jpg" class="d-block w-100" alt="Montaña">
+      </div>
+      <div class="carousel-item">
+        <img src="img/newyork.jpg" class="d-block w-100" alt="Ciudad">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselDestinos" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselDestinos" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+  </div>
+</div>
+
+<!-- SOBRE NOSOTROS -->
+<section class="container my-5">
+  <div class="row align-items-center">
+    <div class="col-md-6">
+      <h2>Nuestra misión</h2>
+      <p>En Agencia de Viajes Express, buscamos ofrecer experiencias únicas alrededor del mundo, con los mejores precios y un servicio personalizado.</p>
+    </div>
+    <div class="col-md-6">
+      <img src="img/newyork.jpg" class="img-fluid rounded" alt="Viaje">
+    </div>
+  </div>
+</section>
+
+<footer class="bg-dark text-white text-center py-3">
+  &copy; 2025 Agencia de Viajes Express - Todos los derechos reservados
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
