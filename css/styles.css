@@ -41,3 +41,15 @@ body {
 .card:hover {
   transform: translateY(-5px);
 }
+
+.formulario {
+  max-width: 650px;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.rango {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+}
+
