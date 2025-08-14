@@ -34,11 +34,76 @@
   <div class="row" id="listaPaquetes"></div>
 </div>
 
+<!-- FORMULARIO -->
+<form class="container pt-5">
+  <div class="mb-5">
+    <label class="form-label">Nombre</label>
+    <input class="form-control" type="text" placeholder="Nombre conpleto">
+    <p></p>
+  </div>
+
+  <div class="mb-5">
+    <label class="form-label">Correo</label>
+    <input class="form-control" type="email" placeholder="example@email.com">
+    <p></p>
+  </div>
+
+  <div class="mb-5">
+    <label class="form-label">Destino De Interés</label>
+    <select class="form-select" aria-label="Default select example">
+      <option selected>Elija su destino de Interés</option>
+      <option value="1">Cancún All-Inclusive</option>
+      <option value="2">Europa En 15 Días</option>
+      <option value="3">Experiencia en Nueva York</option>
+      <option value="4">Safari en África</option>
+      <option value="5">Maravillas de Asia</option>
+      <option value="6">Ruta por Sudamérica</option>
+      <option value="7">Islas del Caribe</option>
+      <option value="8">Desierto de Dubai</option>
+      <option value="9">Canadá y sus paisajes</option>
+      <option value="10">Ruta Maya México</option>
+    </select>
+    <p></p>
+  </div>
+
+  <div class="mb-5">
+    <label class="form-label">Número de Personas</label>
+    <input type="range" class="form-range" min="0" max="15" value="3" id="customRange">
+    <output for="customRange" id="rangeValue" aria-hidden="true"></output>
+    <p></p>
+  </div>
+
+  <div class="mb-5">
+    <label class="form-label">Fecha Tentativa De Viaje</label>
+    <input type="date" class="form-control">
+    <p></p>
+  </div>
+
+  <div class="mb-5">
+    <label class="form-label">Comentarios</label>
+    <textarea class="form-control" rows="3"></textarea>
+  </div>
+
+  <button class="btn btn-primary">Enviar</button>
+</form>
 
 <footer class="bg-dark text-white text-center py-3 mt-5">
   &copy; 2025 Agencia de Viajes Express - Todos los derechos reservados
 </footer>
 
+SCRIPT bootstrap RANGE
+<script>
+  // This is an example script, please modify as needed
+  const rangeInput = document.getElementById('customRange');
+  const rangeOutput = document.getElementById('rangeValue');
+
+  // Set initial value
+  rangeOutput.textContent = rangeInput.value;
+
+  rangeInput.addEventListener('input', function () {
+    rangeOutput.textContent = this.value;
+  });
+</script>
 
 </body>
 </html>

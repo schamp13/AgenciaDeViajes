@@ -34,6 +34,27 @@
   <div class="row" id="listaPaquetes"></div>
 </div>
 
+<div id="alertSuccess" class="alert alert-success alert-dismissible fade d-none" role="alert">
+  <i class="bi bi-check-circle-fill me-2"></i>
+  Mensaje enviado exitosamente!
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
+</div>
+
+<form id="contactForm">
+  <div class="mb-3">
+    <label for="nombre" class="form-label">Nombre completo</label>
+    <input type="text" class="form-control" id="nombre" placeholder="Ingrese su nombre completo" required>
+  </div>
+  <div class="mb-3">
+    <label for="email" class="form-label">Correo electrónico</label>
+    <input type="email" class="form-control" id="email" placeholder="Ingrese su correo electrónico" required>
+  </div>
+  <div class="mb-3">
+    <label for="mensaje" class="form-label">Mensaje</label>
+    <textarea class="form-control" id="mensaje" rows="4" placeholder="Escriba su mensaje" required></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary">Enviar</button>
+</form>
 
 <footer class="bg-dark text-white text-center py-3 mt-5">
   &copy; 2025 Agencia de Viajes Express - Todos los derechos reservados
