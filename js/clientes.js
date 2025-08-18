@@ -1,7 +1,7 @@
 function registrarSolicitud(){
     restablecerAlertas();
     if(validarCampos()==true){
-        const datos = {
+        const solicitud = {
             nombre: document.getElementById('nombre').value,
             email: document.getElementById('email').value,
             destino: document.getElementById('destino').value,
@@ -9,11 +9,35 @@ function registrarSolicitud(){
             fecha: document.getElementById('fecha').value,
             comentario: document.getElementById('comentario').value
         }
-        
+        usuarios = obtenerUsuarios();
+        usuarios.push(solicitud);
+        guardarUsuarios(usuarios);
+
+        let texto = "";
+        usuarios.forEach((u,i)=>{
+            texto += `Nombre: ${u.nombre} | Email: ${u.email} | Destino: ${u.destino} | Personas: ${u.personas} | Fecha ${u.fecha} \n`;
+        });
+
+        const blob = new Blob([texto], {type: "text/plain"})
+        const enlace = document.createElement("a");
+        enlace.href = URL.createObjectURL(blob);
+        enlace.download = "clientes.txt"
+        enlace.click();
+        URL.revokeObjectURL(enlace.href);
+
         console.log("Solicitud registrada");
+        // limpiarInputs();
     }else{
         console.log("Error");
     }
+}
+
+function obtenerUsuarios(){
+    return JSON.parse(localStorage.getItem("usuarios")) || [];
+}
+
+function guardarUsuarios(lista){
+    localStorage.setItem("usuarios", JSON.stringify(lista));
 }
 
 function validarCampos() {
@@ -174,4 +198,12 @@ function restablecerAlertas(){
     document.getElementById('emailError').textContent = "";
     document.getElementById('destinoError').textContent = "";
     document.getElementById('fechaError').textContent = "";
+}
+
+function limpiarInputs(){
+    document.getElementById("nombre").textContent = "";
+    document.getElementById("email").textContent = "";
+    document.getElementById("destino").textContent = "";
+    document.getElementById("fecha").textContent = "";
+    document.getElementById("comentarios").textContent = "";
 }
